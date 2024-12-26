@@ -1,0 +1,21 @@
+split_data:
+  test_size : 0.25
+  shuffle : True
+
+model_parameter:
+  boosting_type: 'gbdt'       # Gradient Boosting Decision Tree
+  objective: 'binary'         # Binary classification task
+  metric: 'binary_logloss'    # Metric to evaluate the model
+  num_leaves: 35              # Maximum number of leaves in one tree
+  learning_rate: 0.01         # Learning rate
+  n_estimators: 90           # Number of boosting iterations
+  max_depth: -1               # Maximum tree depth for base learners, -1 means no limit
+  min_data_in_leaf: 24        # Minimum number of data points in a leaf
+  feature_fraction: 0.8       # Fraction of features to be used per iteration
+  bagging_fraction: 0.8       # Fraction of data to be used per iteration
+  bagging_freq: 1             # Frequency for bagging
+  lambda_l1: 0.01             # L1 regularization
+  lambda_l2: 0.0              # L2 regularization
+  min_split_gain: 0.0         # Minimum loss reduction required to make a further partition on a leaf node
+  verbose: 1                  # Verbose output
+

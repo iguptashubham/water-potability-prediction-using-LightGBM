@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/gupta/OneDrive/Desktop/Projects/lightgbm/water_potability/mlruns/407811645975662891/e8881fa4dd514277a16120f278bd17d4/artifacts
+end_time: 1735202282787
+entry_point_name: ''
+experiment_id: '407811645975662891'
+lifecycle_stage: active
+run_id: e8881fa4dd514277a16120f278bd17d4
+run_name: calm-squirrel-677
+run_uuid: e8881fa4dd514277a16120f278bd17d4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1735202273728
+status: 3
+tags: []
+user_id: gupta

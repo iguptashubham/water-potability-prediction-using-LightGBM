@@ -1,0 +1,41 @@
+stages:
+  fetch_data:
+    cmd: python src/fetch_data.py
+    deps:
+    - src/fetch_data.py
+    outs:
+    - data/raw/water-potability.csv
+
+  split_data:
+    cmd: python src/split_data.py
+    deps:
+    - src/split_data.py
+    - data/raw/water-potability.csv  # Specify the raw data file as a dependency
+    params:
+    - split_data
+    outs:
+    - data/raw/train/train.csv
+    - data/raw/test/test.csv
+
+  data_processing:
+    cmd: python src/data_cleaning.py
+    deps:
+    - data/raw
+    - src/data_cleaning.py
+    outs:
+    - data/processed
+
+  build_model:
+    cmd: python src/model.py
+    deps:
+    - src/model.py
+    
+  train_model:
+    cmd: python src/train_model.py
+    deps:
+    - data/processed
+    - src/model.py
+    params:
+    - model_parameter
+    outs:
+    - models/model.pkl

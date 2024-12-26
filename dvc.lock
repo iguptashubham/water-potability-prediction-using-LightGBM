@@ -1,0 +1,99 @@
+schema: '2.0'
+stages:
+  split_data:
+    cmd: python src/split_data.py
+    deps:
+    - path: data/raw/water-potability.csv
+      hash: md5
+      md5: 5349aa933bb05c3e755aa224edaf7292
+      size: 522157
+    - path: src/split_data.py
+      hash: md5
+      md5: 1f4e9dc70c8fb0a7b938b8f2ce739ce0
+      size: 1587
+    params:
+      params.yaml:
+        split_data:
+          test_size: 0.25
+          shuffle: true
+    outs:
+    - path: data/raw/test/test.csv
+      hash: md5
+      md5: bae4b04dd3a7f98ccff70f3dd373f8f5
+      size: 130871
+    - path: data/raw/train/train.csv
+      hash: md5
+      md5: 99b3f3981d8e7362cff066edf3160857
+      size: 391015
+  fetch_data:
+    cmd: python src/fetch_data.py
+    deps:
+    - path: src/fetch_data.py
+      hash: md5
+      md5: a11b80d68bbec6f88ad5bde0f06ac0bf
+      size: 1131
+    outs:
+    - path: data/raw/water-potability.csv
+      hash: md5
+      md5: 5349aa933bb05c3e755aa224edaf7292
+      size: 522157
+  data_processing:
+    cmd: python src/data_cleaning.py
+    deps:
+    - path: data/raw
+      hash: md5
+      md5: 88428e698a93c8270e9f157162a96f45.dir
+      size: 1044043
+      nfiles: 3
+    - path: src/data_cleaning.py
+      hash: md5
+      md5: 24b9472dfc757875ef4cb9441de7c302
+      size: 1777
+    outs:
+    - path: data/processed
+      hash: md5
+      md5: a2e2013fcacf6212911c4149710ad3e3.dir
+      size: 545645
+      nfiles: 2
+  build_model:
+    cmd: python src/model.py
+    deps:
+    - path: src/model.py
+      hash: md5
+      md5: 784c2a4961c8b9aee3ea8366bf38b200
+      size: 992
+  train_model:
+    cmd: python src/train_model.py
+    deps:
+    - path: data/processed
+      hash: md5
+      md5: a2e2013fcacf6212911c4149710ad3e3.dir
+      size: 545645
+      nfiles: 2
+    - path: src/model.py
+      hash: md5
+      md5: 784c2a4961c8b9aee3ea8366bf38b200
+      size: 992
+    params:
+      params.yaml:
+        model_parameter:
+          boosting_type: gbdt
+          objective: binary
+          metric: binary_logloss
+          num_leaves: 35
+          learning_rate: 0.01
+          n_estimators: 90
+          max_depth: -1
+          min_data_in_leaf: 24
+          feature_fraction: 0.8
+          bagging_fraction: 0.8
+          bagging_freq: 1
+          lambda_l1: 0.01
+          lambda_l2: 0.0
+          min_split_gain: 0.0
+          verbose: 1
+    outs:
+    - path: models/model.pkl
+      hash: md5
+      md5: fa09310d3b55f3b6bf02a7a8218bb2d6
+      size: 354251

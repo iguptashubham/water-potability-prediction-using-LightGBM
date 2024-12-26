@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/gupta/OneDrive/Desktop/Projects/lightgbm/water_potability/mlruns/407811645975662891/a31c4e072e294dec9e433b84771ed68c/artifacts
+end_time: 1735201581247
+entry_point_name: ''
+experiment_id: '407811645975662891'
+lifecycle_stage: active
+run_id: a31c4e072e294dec9e433b84771ed68c
+run_name: brawny-loon-836
+run_uuid: a31c4e072e294dec9e433b84771ed68c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1735201568677
+status: 3
+tags: []
+user_id: gupta
