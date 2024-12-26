@@ -12,6 +12,8 @@ This project focuses on predicting the potability of water using the LightGBM al
   
 ## DVC ML Pipeline
 
+![Screenshot 2024-12-26 225108](https://github.com/user-attachments/assets/490db396-3c77-4f5b-a60e-6540ad8b82cf)
+
 ## Features
 
 - **Gradient Boosting Decision Tree**: Leverages the power of ensemble learning to improve prediction accuracy.
