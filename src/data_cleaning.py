@@ -28,7 +28,7 @@ def process_data(raw_path: str) -> pd.DataFrame:
     train_df = pd.read_csv(train_path)
     for column in train_df.columns:
         if train_df[column].isnull().any():
-            train_df[column] = train_df[column].fillna(train_df[column].median())
+            train_df[column] = train_df[column].fillna(train_df[column].mean())
     train_df.to_csv(train_dir/'preprocessed_train.csv',index=False)
 
     logging.info(f"Processed Train Data saved Sucessfully in {train_path}")
@@ -36,7 +36,7 @@ def process_data(raw_path: str) -> pd.DataFrame:
     test_df = pd.read_csv(test_path)
     for column in test_df.columns:
         if test_df[column].isnull().any():
-            test_df[column] = test_df[column].fillna(test_df[column].median())
+            test_df[column] = test_df[column].fillna(test_df[column].mean())
     test_df.to_csv(test_dir/'preprocessed_test.csv',index=False) 
     
     logging.info(f"Processed Test Data saved Sucessfully in {test_path}")   
