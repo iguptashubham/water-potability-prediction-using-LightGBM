@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/gupta/OneDrive/Desktop/Projects/lightgbm/water_potability/mlruns/407811645975662891/3eaf17020cfc4ee5995d6e830a8798ef/artifacts
+end_time: 1735237323612
+entry_point_name: ''
+experiment_id: '407811645975662891'
+lifecycle_stage: active
+run_id: 3eaf17020cfc4ee5995d6e830a8798ef
+run_name: shivering-skink-299
+run_uuid: 3eaf17020cfc4ee5995d6e830a8798ef
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1735237309337
+status: 3
+tags: []
+user_id: gupta
